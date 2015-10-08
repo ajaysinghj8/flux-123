@@ -11,5 +11,11 @@
   "dependencies": {
     "flux": "^2.1.1",
     "react": "^0.14.0"
+  },
+  "devDependencies": {
+    "browserify": "^11.2.0",
+    "gulp": "^3.9.0",
+    "plumber": "^0.4.8",
+    "reactify": "^1.1.1"
   }
 }
