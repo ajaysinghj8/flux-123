@@ -1,6 +1,6 @@
 var gulp = require('gulp'),
     browserify = require('gulp-browserify'),
-    plumber = require('plumber'),
+    plumber = require('gulp-plumber'),
     babelify = require('babelify'),
     concat = require('gulp-concat'),
     _ = require('lodash'),
@@ -17,17 +17,14 @@ gulp.task('webserver', function() {
     });
 })
 gulp.task('build-application', function() {
-    return gulp.src('./src/app.js')
-        // .pipe(jshint())
-        // .pipe(jshint.reporter('default'))
+    return gulp.src('./src/AppBootstrap.js')
+        .pipe(plumber())
         .pipe(browserify({
             insertGlobals: true,
             debug: true,
             transform: ['babelify']
         }))
-        .pipe(rename(function(path) {
-            path.basename = 'bundle';
-        }))
+        .pipe(concat('bundle.js'))
         .pipe(gulp.dest('./public/js'));
 
 });
@@ -36,5 +33,5 @@ gulp.watch(['./src/**/*.js'], function() {
     runSequence(['build-application', 'reload-connect']);
 });
 gulp.task('reload-connect', function() {
-    gulp.src('./src/**/*.js').pipe(connect.reload());
+    gulp.src('./src/**/*.js').pipe(plumber()).pipe(connect.reload());
 });
