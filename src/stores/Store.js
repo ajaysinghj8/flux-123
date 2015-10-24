@@ -14,6 +14,7 @@ export class Store extends EventEmitter {
 			if (this.actions[action.actionType]) {
 				this.actions[action.actionType].forEach((fn) => {
 					fn.call(this, action.data);
+					this.emitChange();
 				});
 			}
 		});
