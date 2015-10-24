@@ -1,5 +1,5 @@
 import * as React from 'react';
-import {RouteHandler} from 'react-router';
+import {RouteHandler,Link} from 'react-router';
 
 export let MainAppCmp= React.createClass({
 	render: function() {
@@ -10,6 +10,7 @@ export let MainAppCmp= React.createClass({
 						<div className='row'>
 				  			 <div className='three columns'>
 				 				  Navigation
+								<Link to="users">Users </Link>			   
 							 </div>
 							 <div className='nine columns'>
 				 				 <RouteHandler />
