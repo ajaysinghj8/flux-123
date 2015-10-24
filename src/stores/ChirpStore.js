@@ -1,5 +1,5 @@
 import {CONSTANTS} from '../constants/constants';
-import {Store} from './AppStore';
+import {Store} from './Store';
 export class ChirpStore extends Store{
 	constructor(){
 		super();
