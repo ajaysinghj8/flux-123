@@ -13,7 +13,7 @@ export class Store extends EventEmitter {
 		dispatcher.register((action) => {
 			if (this.actions[action.actionType]) {
 				this.actions[action.actionType].forEach((fn) => {
-					fn.call(null, action.data);
+					fn.call(this, action.data);
 				});
 			}
 		});
