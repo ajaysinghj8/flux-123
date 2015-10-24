@@ -1,4 +1,4 @@
-import {handler} from '../actions/AppActions';
+import {ActionHandler} from '../actions/AppActions';
 
 export class Api{
 	constructor(){
@@ -9,6 +9,6 @@ export class Api{
 		}];
 	}
 	fetchChirps(){
-			 Promise.resolve(this._chirps).then(handler.gotChirps.bind(handler));
+			 Promise.resolve(this._chirps).then(ActionHandler.gotChirps.bind(ActionHandler));
 	}
 }
