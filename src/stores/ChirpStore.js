@@ -5,7 +5,7 @@ export class ChirpStore extends Store{
 		super();
 	}
 	init(){
-		this.bind(CONSTANTS.GOT_CHIRPS, this.set.bind(this));
-		this.bind(CONSTANTS.CHIRPED, this.add.bind(this));
+		this.bind(CONSTANTS.GOT_CHIRPS, this.set);
+		this.bind(CONSTANTS.CHIRPED, this.add);
 	}
 }
