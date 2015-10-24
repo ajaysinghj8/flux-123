@@ -16,14 +16,5 @@
     "react-router": "^0.13.4"
   },
   "devDependencies": {
-    "babelify": "^6.3.0",
-    "gulp": "^3.9.0",
-    "gulp-browserify": "^0.5.1",
-    "gulp-concat": "^2.6.0",
-    "gulp-connect": "^2.2.0",
-    "gulp-plumber": "^1.0.1",
-    "gulp-rename": "^1.2.2",
-    "reactify": "^1.1.1",
-    "run-sequence": "^1.1.4"
   }
 }
