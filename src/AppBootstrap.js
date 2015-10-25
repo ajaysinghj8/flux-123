@@ -1,10 +1,10 @@
 import * as React from 'react';
 import * as ReactRouter from 'react-router';
-import {ChirpApi} from './utils/chirpApi';
-import {MainAppCmp} from './components/App';
-import {Home} from './components/home'
-import {UserApi} from './utils/userApi';
-import {UserList} from './components/userList';
+import ChirpApi from './utils/chirpApi';
+import MainAppCmp from './components/App';
+import Home from './components/home'
+import UserApi from './utils/userApi';
+import UserList from './components/userList';
 
 let chirpApi = new ChirpApi();
 let userApi =new UserApi();
