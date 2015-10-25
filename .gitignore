@@ -4,3 +4,4 @@ public/js/*
 .vscode/
 .vscode/*
 jsconfig.json
+npm-debug.log
