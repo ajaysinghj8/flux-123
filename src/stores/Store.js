@@ -28,7 +28,7 @@ export default class Store extends EventEmitter {
 		arr.filter(item => currIds.indexOf(item.cid) === -1).forEach(this.add.bind(this));
 	}
 	add(item) {
-		this._data.push(item);
+		this._data.unshift(item);
 	}
 	all() {
 		return this._data;
