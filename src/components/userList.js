@@ -4,11 +4,11 @@ import {ActionHandler} from '../actions/AppActions';
 import {Link} from 'react-router';
 
 let userStoreInstance = new UserStore();
-export default class UserList extends React.Components {
+export default class UserList extends React.Component {
 	state = {
 		users: userStoreInstance.all(),
 		user: userStoreInstance.currentUser
-	}
+	};
 	componentDidMount() {
 		userStoreInstance.addChangeListener(this.onChange);
 	}
