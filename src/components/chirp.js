@@ -22,7 +22,13 @@ export default class Chirp extends React.Component {
 		chirpStore.removeChangeListener(this.onChange);
 	}
 	saveChirp = text => {
-		ActionHandler.chirp(text);
+		var chirp = {
+			text: text,
+			userId: USER.userId, //TODO need to remove user from global scope
+			created: +(new Date()),
+			userInfo: USER
+		};
+		ActionHandler.chirp(chirp);
 	}
 	render() {
 		return (<div>
