@@ -1,7 +1,7 @@
 import {CONSTANTS} from '../constants/constants';
-import {Store} from './Store';
+import Store from './Store';
 
-export class UserStore extends Store {
+export default class UserStore extends Store {
 	constructor() {
 		super();
 		this.currentUser = window.USER;
