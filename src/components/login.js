@@ -3,9 +3,9 @@ import {ActionHandler} from '../actions/AppActions';
 
 export default class Login extends React.Component {
 	render() {
-		if (this.props.user.email)
+		if (this.props.user.userId)
 			return (<div className='row' >
-				<p> Hi!, {this.props.user.displayName } </p>
+				<p> Hi!, {this.props.user.name } </p>
 				< p > <button onClick={ this.signout }> Logout < /button> </p >
 				</div>);
 		return (<div className='row' >
