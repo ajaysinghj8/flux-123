@@ -4,7 +4,7 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "build:js": "browserify ./src/AppBootstrap.js -t [babelify --optional es7.classProperties ] --outfile ./public/js/bundle.js",
+    "build:js": "browserify ./src/AppBootstrap.js -t [ babelify --stage 0 ] --outfile ./public/js/bundle.js",
     "build": "watch 'npm run build:js' ./src"
   },
   "author": "",
