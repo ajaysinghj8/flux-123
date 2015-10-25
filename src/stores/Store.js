@@ -4,13 +4,13 @@ import {dispatcher} from '../dispatcher/dispatcher';
 
 const CHANGE_EVENT = 'CHANGED';
 
-export class Store extends EventEmitter {
+export default class Store extends EventEmitter {
 	constructor() {
 		super();
 		this.actions = {};
 		this._data = [];
 		this.init();
-		dispatcher.register((action) => {
+		dispatcher.register(action => {
 			if (this.actions[action.actionType]) {
 				this.actions[action.actionType].forEach((fn) => {
 					fn.call(this, action.data);
@@ -24,8 +24,8 @@ export class Store extends EventEmitter {
 		
 	}
 	set(arr) {
-		var currIds = this._data.map((m) => m.cid);
-		arr.filter((item) => currIds.indexOf(item.cid) === -1).forEach(this.add.bind(this));
+		var currIds = this._data.map(m => m.cid);
+		arr.filter(item => currIds.indexOf(item.cid) === -1).forEach(this.add.bind(this));
 	}
 	add(item) {
 		this._data.push(item);
@@ -34,7 +34,7 @@ export class Store extends EventEmitter {
 		return this._data;
 	}
 	get(id) {
-		return this._data.filter((item) => item.cid === id)[0];
+		return this._data.filter(item => item.cid === id)[0];
 	}
 	addChangeListener(fn) {
 		this.on(CHANGE_EVENT, fn);
