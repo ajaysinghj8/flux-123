@@ -15,12 +15,13 @@ export default class UserApi {
 			var chirpApiInstance = new ChirpApi();
 			if (authData){
 			   ActionHandler.signedinUser.call(ActionHandler,this.tranformAuthData(authData));
-			   chirpApiInstance.bindFireBase();
-				UsersDb.on('value',snapshot=>{
+			   UsersDb.on('value',snapshot=>{
 					setTimeout(() => {
 				 		ActionHandler.gotUsers.call(ActionHandler,this.toArray(snapshot));	
 					},100);
-				});   	   
+				});
+			   chirpApiInstance.bindFireBase();
+				   	   
 			}
 			else{
 				setTimeout(() => {
