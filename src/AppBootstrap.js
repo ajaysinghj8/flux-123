@@ -1,5 +1,5 @@
-import * as React from 'react';
-import * as ReactRouter from 'react-router';
+import React from 'react';
+import ReactRouter from 'react-router';
 import ChirpApi from './utils/chirpApi';
 import MainAppCmp from './components/App';
 import Home from './components/home'
@@ -11,7 +11,7 @@ let userApi =new UserApi();
 userApi.fetch();
 chirpApi.fetch();
 
-let Route = ReactRouter.Route;
+const {Route} = ReactRouter;
 let routes = (<Route handler={ MainAppCmp } >
 	<Route name='home' path= '/' handler= { Home } />
 	<Route name='users' handler= { UserList } />
