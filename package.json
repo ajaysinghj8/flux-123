@@ -4,7 +4,8 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "build:js": "browserify ./src/AppBootstrap.js -t [babelify --optional es7.classProperties ] --outfile ./public/js/bundle.js",
+    "build": "watch 'npm run build:js' ./src"
   },
   "author": "",
   "license": "ISC",
@@ -16,5 +17,8 @@
     "react-router": "^0.13.4"
   },
   "devDependencies": {
+    "babelify": "^6.4.0",
+    "browserify": "^11.2.0",
+    "watch": "^0.16.0"
   }
 }
