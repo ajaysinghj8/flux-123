@@ -1,4 +1,4 @@
-export let CONSTANTS = {
+export const CONSTANTS = {
     CHIRP: Symbol('CHIRP'),
     CHIRPED: Symbol('CHIRPED'),
     GOT_CHIRPS: Symbol('GOT_CHIRPS'),
