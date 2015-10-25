@@ -2,7 +2,7 @@ import {ActionHandler} from '../actions/AppActions';
 import {dispatcher} from '../dispatcher/dispatcher';
 import {CONSTANTS} from '../constants/constants';
 
-export class UserApi {
+export default class UserApi {
 	constructor() {
 		this._data = [
 			{ cid: 1, fullname: 'Ajay Singh', username: 'plutazoo' },
