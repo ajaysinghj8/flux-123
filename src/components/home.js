@@ -4,14 +4,16 @@ import {ActionHandler} from '../actions/AppActions';
 import ChirpStore from '../stores/ChirpStore';
 import ChirpList from './chirpList';
 let chirpStore = new ChirpStore();
-export default class Home extends React.Components {
+
+
+export default class Home extends React.Component {
 	state = {
 		chirps: chirpStore.all()
-	}
+	};
 	componentDidMount() {
 		chirpStore.addChangeListener(this.onChange);
 	}
-	onChange() {
+	onChange = () => {
 		this.setState({
 			chirps: chirpStore.all()
 		});
