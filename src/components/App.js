@@ -1,8 +1,8 @@
-import * as React from 'react';
+import React from 'react';
 import {RouteHandler,Link} from 'react-router';
 
-export let MainAppCmp= React.createClass({
-	render: function() {
+export default class MainAppCmp extends React.Component {
+	render() {
 		return (<div className='container'>
 					<div className='row'>
 							<h1> Chirper </h1>
@@ -18,4 +18,4 @@ export let MainAppCmp= React.createClass({
 					</div>
 			</div>);
 	}
-});
+}
