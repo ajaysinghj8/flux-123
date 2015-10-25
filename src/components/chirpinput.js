@@ -1,8 +1,8 @@
 import React from 'react';
 
 
-export default class ChirpInput extends React.Components {
-	state = { value: '' }
+export default class ChirpInput extends React.Component {
+	state ={value:''};
 	handleChange = evt => {
 		this.setState({
 			value: evt.target.value
