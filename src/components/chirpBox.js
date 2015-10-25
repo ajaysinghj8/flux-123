@@ -3,7 +3,7 @@ import {Link} from 'react-router';
 import {avatar} from '../utils/utils';
 import Moment from 'moment';
 
-export default class ChirpBox extends React.Components{
+export default class ChirpBox extends React.Component{
   render() {
     var c = this.props.chirp;
     return (<li className= 'row chirp' >
@@ -14,7 +14,7 @@ export default class ChirpBox extends React.Components{
             <p>
                <strong>Ajay Singh </strong>
                <span className='timestamp'>
-                @{'plutazoo'} {Moment.default(c.date).fromNow()}
+                @{'plutazoo'} {Moment(c.date).fromNow()}
                </span>
             </p>
             <p>
