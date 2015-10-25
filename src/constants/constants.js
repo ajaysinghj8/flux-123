@@ -3,7 +3,10 @@ export const CONSTANTS = {
     CHIRPED: Symbol('CHIRPED'),
     GOT_CHIRPS: Symbol('GOT_CHIRPS'),
 
-
+    SIGNIN_USER: Symbol('SIGNIN_USER'),
+    SIGNEDIN_USER: Symbol('SIGNEDIN_USER'),
+    SIGNOUT_USER:Symbol('SIGNOUT_USER'),
+    SIGNEDOUT_USER:Symbol('SIGNEDOUT_USER'),
     GOT_CURRENT_USER: Symbol('GOT_CURRENT_USER'),
     GOT_USERS: Symbol('GOT_USERS'),
 
