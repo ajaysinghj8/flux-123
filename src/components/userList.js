@@ -12,9 +12,10 @@ export default class UserList extends React.Component {
 	componentDidMount() {
 		userStoreInstance.addChangeListener(this.onChange);
 	}
-	onChange() {
+	onChange = () => {
 		this.setState({
-			chirps: userStoreInstance.all()
+			users: userStoreInstance.all(),
+			user: userStoreInstance.currentUser
 		});
 	}
 	componentWillUnmount() {
