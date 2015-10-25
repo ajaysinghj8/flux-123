@@ -15,6 +15,7 @@ export default class UserStore extends Store {
 	}
 	updateUser(data) {
 		this.currentUser = data;
+		window.USER = data;//TODO need to remove user from global scope
 	}
 
 }
