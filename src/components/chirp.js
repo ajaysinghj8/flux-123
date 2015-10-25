@@ -6,7 +6,7 @@ import ChirpList from './chirpList';
 let chirpStore = new ChirpStore();
 
 
-export default class Home extends React.Component {
+export default class Chirp extends React.Component {
 	state = {
 		chirps: chirpStore.all()
 	};
