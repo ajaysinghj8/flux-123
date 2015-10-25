@@ -1,27 +1,43 @@
 import {ActionHandler} from '../actions/AppActions';
 import {dispatcher} from '../dispatcher/dispatcher';
 import {CONSTANTS} from '../constants/constants';
+import {ChirpDb} from './firebaseApi';
+export default class ChirpApi {
+	constructor() {
+	}
+	unBindFireBase(){
+		ChirpDb.off('value');
+	}
+	bindFireBase(){
+		ChirpDb.on('value',snapshot=>{
+			setTimeout(() => {
+				  ActionHandler.gotChirps.call(ActionHandler,this.toArray(snapshot));
+			  }, 100);
+		});
+	}
+	toArray(snapshot) {
+		var array = [];
+		snapshot.forEach(snap=> {
+			var vals = this.toObject(snap);
+			array.push(vals);
+		});
+		return array;
+	}
+	fetch() {
+		// ChirpDb.once('value', snapshot => {
+		// 	setTimeout(() => {
+		// 		ActionHandler.gotChirps.call(ActionHandler, this.toArray(snapshot));
+		// 	}, 100);
 
-export default class ChirpApi{
-	constructor(){
-		this.incrementalId =1;
-		this._chirps =[{
-			cid:1,
-			text:'Good Life',
-			date: new Date()
-		}];
+		// });
 	}
-	fetch(){
-			 Promise.resolve(this._chirps).then(ActionHandler.gotChirps.bind(ActionHandler));
+	toObject(snapshot){
+		var vals = snapshot.val();
+		vals.cid = snapshot.key();
+		return vals;
 	}
-	save(chirp){
-		var newChirp ={
-			cid: ++this.incrementalId,
-			text: chirp,
-			date: new Date()
-		}
-		this._chirps.push(newChirp);
-		Promise.resolve(newChirp).then(ActionHandler.chirped.bind(ActionHandler));
+	save(chirp) {
+		ChirpDb.push(chirp);
 	}
 }
 
@@ -29,10 +45,10 @@ export default class ChirpApi{
 
 
 let chirpApiInstance = new ChirpApi();
-dispatcher.register(action=>{
-	switch(action.actionType){
-		case CONSTANTS.CHIRP :
+dispatcher.register(action=> {
+	switch (action.actionType) {
+		case CONSTANTS.CHIRP:
 			chirpApiInstance.save(action.data);
-			break;			
+			break;
 	}
 });
