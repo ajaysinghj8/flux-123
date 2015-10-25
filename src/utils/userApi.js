@@ -14,7 +14,6 @@ export default class UserApi {
 		firebase.onAuth(authData=> {
 			var chirpApiInstance = new ChirpApi();
 			if (authData){
-				console.log('here it is got called');
 			   ActionHandler.signedinUser.call(ActionHandler,this.tranformAuthData(authData));
 			   chirpApiInstance.bindFireBase();
 				UsersDb.on('value',snapshot=>{
@@ -24,7 +23,6 @@ export default class UserApi {
 				});   	   
 			}
 			else{
-				console.log('un here it is got called');
 				setTimeout(() => {
 					ActionHandler.signedoutUser.call(ActionHandler, {});
 				}, 300);
