@@ -1,10 +1,10 @@
-import * as React from 'react';
+import React from 'react';
 import {Link} from 'react-router';
 import {avatar} from '../utils/utils';
-import * as Moment from 'moment';
+import Moment from 'moment';
 
-export let ChirpBox = React.createClass({
-  render: function () {
+export default class ChirpBox extends React.Components{
+  render() {
     var c = this.props.chirp;
     return (<li className= 'row chirp' >
        <Link className='two columns' to='user' params={{id:10}}>
@@ -25,4 +25,4 @@ export let ChirpBox = React.createClass({
     < /li>);
   }
 
-});
+}
