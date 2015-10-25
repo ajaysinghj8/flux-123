@@ -1,6 +1,6 @@
 import {CONSTANTS} from '../constants/constants';
-import {Store} from './Store';
-export class ChirpStore extends Store{
+import Store from './Store';
+export default class ChirpStore extends Store{
 	constructor(){
 		super();
 	}
