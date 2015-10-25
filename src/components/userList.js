@@ -1,28 +1,26 @@
-import * as React from 'react';
-import {UserStore} from '../stores/UserStore';
+import React from 'react';
+import UserStore from '../stores/UserStore';
 import {ActionHandler} from '../actions/AppActions';
 import {Link} from 'react-router';
 
 let userStoreInstance = new UserStore();
-export let UserList = React.createClass({
-	getInitialState: function () {
-		return {
-			users: userStoreInstance.all(),
-			user: userStoreInstance.currentUser
-		};
-	},
-	componentDidMount: function () {
+export default class UserList extends React.Components {
+	state = {
+		users: userStoreInstance.all(),
+		user: userStoreInstance.currentUser
+	}
+	componentDidMount() {
 		userStoreInstance.addChangeListener(this.onChange);
-	},
-	onChange: function () {
+	}
+	onChange() {
 		this.setState({
 			chirps: userStoreInstance.all()
 		});
-	},
-	componentWillUnmount: function () {
+	}
+	componentWillUnmount() {
 		userStoreInstance.removeChangeListener(this.onChange);
-	},
-	render: function () {
+	}
+	render() {
 		var listUsers =
 			this.state.users
 				.filter(user=> this.state.user.cid !== user.cid)
@@ -32,4 +30,4 @@ export let UserList = React.createClass({
 		return (<ul> { listUsers } < /ul>);
 
 	}
-});
+}
