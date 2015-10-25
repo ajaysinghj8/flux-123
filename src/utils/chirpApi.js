@@ -2,7 +2,7 @@ import {ActionHandler} from '../actions/AppActions';
 import {dispatcher} from '../dispatcher/dispatcher';
 import {CONSTANTS} from '../constants/constants';
 
-export class ChirpApi{
+export default class ChirpApi{
 	constructor(){
 		this.incrementalId =1;
 		this._chirps =[{
@@ -26,20 +26,9 @@ export class ChirpApi{
 }
 
 
-export class UsersApi{
-	constructor(){
-		
-	}
-	fetch(){
-		Promise.resolve({userId:1,fullname:'Ajay Singh', username:'plutazoo'}).then(ActionHandler.gotUsers.bind(ActionHandler));	
-	}
-	
-}
 
 
 let chirpApiInstance = new ChirpApi();
-let usersApiInstance = new UsersApi();
-
 dispatcher.register(action=>{
 	switch(action.actionType){
 		case CONSTANTS.CHIRP :
