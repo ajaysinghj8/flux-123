@@ -3,9 +3,7 @@ import ReactRouter from 'react-router';
 import MainAppCmp from './components/App';
 import Chirp from './components/chirp'
 import UserList from './components/userList';
-import UserApi from './utils/userApi';
-
-new UserApi().bindFireBase();
+import {usersApiInstance} from './utils/userApi';
 
 const {Route} = ReactRouter;
 let routes = (<Route handler={ MainAppCmp } >
