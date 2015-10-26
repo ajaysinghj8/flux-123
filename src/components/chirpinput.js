@@ -14,6 +14,14 @@ export default class ChirpInput extends React.Component {
 			value: ''
 		});
 	}
+	handleKeyDown = evt =>{
+		if(evt.charCode === 13){
+			this.props.onSave(this.state.value);
+			this.setState({
+				value: ''
+			});
+		}
+	}
 	render() {
 		return (<div className='row' >
 			<div className='nine columns' >
@@ -22,6 +30,7 @@ export default class ChirpInput extends React.Component {
 		type = 'text'
 		placeholder = 'write'
 		value = { this.state.value }
+		onKeyPress = {this.handleKeyDown}
 		onChange = { this.handleChange } />
 		</div>
 		< div className= 'three columns' >
