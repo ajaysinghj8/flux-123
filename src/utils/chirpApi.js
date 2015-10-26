@@ -2,7 +2,7 @@ import {ActionHandler} from '../actions/AppActions';
 import {dispatcher} from '../dispatcher/dispatcher';
 import {CONSTANTS} from '../constants/constants';
 import {ChirpDb} from './firebaseApi';
-export default class ChirpApi {
+class ChirpApi {
 	constructor() {
 	}
 	unBindFireBase(){
@@ -23,14 +23,6 @@ export default class ChirpApi {
 		});
 		return array;
 	}
-	fetch() {
-		// ChirpDb.once('value', snapshot => {
-		// 	setTimeout(() => {
-		// 		ActionHandler.gotChirps.call(ActionHandler, this.toArray(snapshot));
-		// 	}, 100);
-
-		// });
-	}
 	toObject(snapshot){
 		var vals = snapshot.val();
 		vals.cid = snapshot.key();
@@ -44,7 +36,7 @@ export default class ChirpApi {
 
 
 
-let chirpApiInstance = new ChirpApi();
+export let chirpApiInstance = new ChirpApi();
 dispatcher.register(action=> {
 	switch (action.actionType) {
 		case CONSTANTS.CHIRP:
