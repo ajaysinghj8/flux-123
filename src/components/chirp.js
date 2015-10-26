@@ -23,7 +23,7 @@ export default class Chirp extends React.Component {
 		chirpStore.removeChangeListener(this.onChange);
 	}
 	saveChirp = text => {
-		if(!text && !userStore.currentUser.userId) return;
+		if(!text || !userStore.currentUser.userId) return;
 		var chirp = {
 			text: text,
 			userId: userStore.currentUser.userId,
