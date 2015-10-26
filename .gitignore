@@ -1,3 +1,7 @@
 node_modules
 node_modules/*
 public/js/*
+.vscode/
+.vscode/*
+jsconfig.json
+npm-debug.log

@@ -4,24 +4,25 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "build:js": "browserify ./src/AppBootstrap.js -t [ babelify --stage 0 ] --outfile ./public/js/bundle.js",
+    "build:watch": "watch 'npm run build:js' ./src",
+    "build:live":"live-reload --port 8080 ./",
+    "build":"npm run build:watch"
   },
   "author": "",
   "license": "ISC",
   "dependencies": {
+    "firebase": "^2.3.1",
     "flux": "^2.1.1",
     "lodash": "^3.10.1",
-    "react": "^0.14.0"
+    "moment": "^2.10.6",
+    "react": "^0.13.3",
+    "react-router": "^0.13.4"
   },
   "devDependencies": {
-    "babelify": "^6.3.0",
-    "gulp": "^3.9.0",
-    "gulp-browserify": "^0.5.1",
-    "gulp-concat": "^2.6.0",
-    "gulp-connect": "^2.2.0",
-    "gulp-plumber": "^1.0.1",
-    "gulp-rename": "^1.2.2",
-    "reactify": "^1.1.1",
-    "run-sequence": "^1.1.4"
+    "babelify": "^6.4.0",
+    "browserify": "^11.2.0",
+    "live-reload": "^1.1.0",
+    "watch": "^0.16.0"
   }
 }
