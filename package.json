@@ -5,7 +5,9 @@
   "main": "index.js",
   "scripts": {
     "build:js": "browserify ./src/AppBootstrap.js -t [ babelify --stage 0 ] --outfile ./public/js/bundle.js",
-    "build": "watch 'npm run build:js' ./src"
+    "build:watch": "watch 'npm run build:js' ./src",
+    "build:live":"live-reload --port 8080 ./",
+    "build":"npm run build:watch"
   },
   "author": "",
   "license": "ISC",
@@ -20,6 +22,7 @@
   "devDependencies": {
     "babelify": "^6.4.0",
     "browserify": "^11.2.0",
+    "live-reload": "^1.1.0",
     "watch": "^0.16.0"
   }
 }
