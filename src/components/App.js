@@ -27,7 +27,8 @@ export default class MainAppCmp extends React.Component {
 						<div className='row'>
 				  			 <div className='three columns'>
 				 				<Login user={this.state.user} />
-								<Link to="users">Users </Link>			   
+								<div><Link to="home">Timeline </Link></div>
+								<div><Link to="users">Users </Link></div>			   
 							 </div>
 							 <div className='nine columns'>
 				 				 <RouteHandler />
